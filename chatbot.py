@@ -48,9 +48,9 @@ class Chatbot():
             "Teacher: What is a verb? Chinedu: It's a doing word, sir. Teacher: Give example. Chinedu: 'To chop'. ",
             "Only in Nigeria will your neighbor shout 'UP NEPA!' like they just won a Grammy."]
 
-        self.username = "Friend"
-        self.coversation_count = 0
-        self.user_preference = {}
+        self.user_name = "Friend"
+        self.conversation_count = 0
+        self.user_preferences = {}
         self.conversation_history = []
 
 
@@ -73,7 +73,7 @@ class Chatbot():
         '''Gets key entities from text'''
         entities = {
             'digits' : re.findall(r'\d+', text),
-            'emails' : re.findall(r'\S+@\S', text),
+            'emails' : re.findall(r'\S+@\S+', text),
             'urls' : re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
         }
         return entities
@@ -95,10 +95,10 @@ class Chatbot():
         '''It does Basic Math Calculations'''
         #Patterns to search for in user input using regex
         patterns = [
-            r'(\d+)\s*\+\s*(\d+)'   #for addition
-            r'(\d+)\s*\-\s*(\d+)'   #for subtraction
-            r'(\d+)\s*\*\s*(\d+)'   #for multiplication
-            r'(\d+)\s*\/\s*(\d+)'   #for division
+            r'(\d+)\s*\+\s*(\d+)',   #for addition
+            r'(\d+)\s*\-\s*(\d+)',  #for subtraction
+            r'(\d+)\s*\*\s*(\d+)',  #for multiplication
+            r'(\d+)\s*\/\s*(\d+)',   #for division
         ]
 
         for pattern in patterns:
@@ -109,9 +109,9 @@ class Chatbot():
                     if '+' in pattern:
                         return f'{num1} + {num2} = {num1 + num2}'
                     elif '-' in pattern:
-                        return f'{num1} + {num2} = {num1 + num2}'
+                        return f'{num1} + {num2} = {num1 - num2}'
                     elif '*' in pattern:
-                        return f'{num1} + {num2} = {num1 + num2}'
+                        return f'{num1} + {num2} = {num1 * num2}'
                     elif '/' in pattern:
                         if num2 != 0:
                             return f'{num1} ÷ {num2} = {num1 / num2:.2f}'
@@ -119,7 +119,7 @@ class Chatbot():
                             return "Can't be divided by Zero!"
                 except:
                     pass
-            return None
+        return None
 
 
     def process_input(self, user_input):
@@ -240,8 +240,6 @@ if __name__ == "__main__":
 
     bot = Chatbot()
     bot.run()
-
-
 
 
 
