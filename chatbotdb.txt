@@ -1,0 +1,1 @@
+# This is the DB of the chatbot(still in works)
