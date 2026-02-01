@@ -1,16 +1,16 @@
-#Creating my own AI
+# Creating my own AI
 
-#importing modules
+# importing modules
 import random
 import re
 from datetime import datetime
 import json
 import nltk
 from textblob import TextBlob
-#Making it more alive, I will have to add more important modules
+# Making it more alive, I will have to add more important modules
 
-#Starting with a simple chatbot
-#Downloading required nltk data, to be run once
+# Starting with a simple chatbot
+# Downloading required nltk data, to be run once
 # try:
 #     nltk.download('punkt', quiet=True)
 #     nltk.download('stopwords', quiet=True)
@@ -240,6 +240,7 @@ if __name__ == "__main__":
 
     bot = Chatbot()
     bot.run()
+
 
 
 
